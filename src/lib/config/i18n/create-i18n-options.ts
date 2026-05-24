@@ -12,6 +12,7 @@ import {
 } from '../../utils/find-project-for-path';
 import { retrieveOrCreateProjectGraph } from '../../utils/graph';
 import { logger, workspaceRoot } from '../../utils/workspace';
+import type { I18nProjectMetadata } from '../../models/i18n';
 
 /**
  * The base module location used to search for locale specific data.
@@ -63,16 +64,17 @@ async function tryGetI18nMetadataFromProject(projectRoot: string) {
       return undefined;
     }
 
-    const project = graph.nodes[projectName];
-    // Need to cast to any as Nx is not aware of the i18n metadata that exists in angular projects
-    const projectData = project.data as any;
-    if (projectData.i18n && typeof projectData.i18n === 'object') {
-      return projectData.i18n;
+    const i18n = graph.nodes[projectName].data.i18n;
+    if (isI18nProjectMetadata(i18n)) {
+      return i18n;
     }
   } catch {
-    // Issue attempting to use the Nx project graph to determine the project to get the i18n metadata.
     return undefined;
   }
+}
+
+function isI18nProjectMetadata(value: unknown): value is I18nProjectMetadata {
+  return typeof value === 'object' && value !== null;
 }
 
 async function createI18nOptions(

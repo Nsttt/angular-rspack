@@ -162,10 +162,13 @@ export class NgRspackPlugin implements RspackPluginInstance {
               ? 'localhost'
               : this.pluginOptions.devServer.host;
           const port = this.pluginOptions.devServer.port;
+          const devServer =
+            compiler.options.devServer === false
+              ? undefined
+              : compiler.options.devServer;
           const pathname =
-            typeof compiler.options.devServer?.devMiddleware?.publicPath ===
-            'string'
-              ? compiler.options.devServer?.devMiddleware?.publicPath
+            typeof devServer?.devMiddleware?.publicPath === 'string'
+              ? devServer.devMiddleware.publicPath
               : undefined;
 
           const serverAddress = new URL(`${protocol}://${hostname}:${port}`);

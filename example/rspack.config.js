@@ -1,4 +1,4 @@
-const { createConfig } = require('angular-rspack');
+const { createConfig } = require('angular-rspack/rspack');
 
 module.exports = createConfig(
   {

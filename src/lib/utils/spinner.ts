@@ -6,26 +6,27 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 
-import ora from 'ora';
 import { colors } from './color';
 import { isTTY } from './tty';
 
+interface SpinnerLike {
+  text: string;
+  isSpinning: boolean;
+  succeed(text?: string): void;
+  fail(text?: string): void;
+  stop(): void;
+  start(text?: string): void;
+}
+
 export class Spinner {
-  private readonly spinner: ora.Ora;
+  private readonly spinner: SpinnerLike;
 
   /** When false, only fail messages will be displayed. */
   enabled = true;
   readonly #isTTY = isTTY();
 
   constructor(text?: string) {
-    this.spinner = ora({
-      text: text === undefined ? undefined : text + '\n',
-      // The below 2 options are needed because otherwise CTRL+C will be delayed
-      // when the underlying process is sync.
-      hideCursor: false,
-      discardStdin: false,
-      isEnabled: this.#isTTY,
-    });
+    this.spinner = new BasicSpinner(text === undefined ? '' : text + '\n');
   }
 
   set text(text: string) {
@@ -53,6 +54,40 @@ export class Spinner {
   start(text?: string): void {
     if (this.enabled) {
       this.spinner.start(text);
+    }
+  }
+}
+
+class BasicSpinner implements SpinnerLike {
+  text: string;
+  isSpinning = false;
+
+  constructor(text: string) {
+    this.text = text;
+  }
+
+  succeed(text?: string): void {
+    this.isSpinning = false;
+    if (text) {
+      console.log(text);
+    }
+  }
+
+  fail(text?: string): void {
+    this.isSpinning = false;
+    if (text) {
+      console.error(text);
+    }
+  }
+
+  stop(): void {
+    this.isSpinning = false;
+  }
+
+  start(text?: string): void {
+    this.isSpinning = true;
+    if (text) {
+      this.text = text;
     }
   }
 }

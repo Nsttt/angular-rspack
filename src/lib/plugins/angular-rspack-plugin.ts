@@ -324,6 +324,9 @@ export class AngularRspackPlugin implements RspackPluginInstance {
     });
 
     compiler.hooks.afterDone.tap(PLUGIN_NAME, (stats) => {
+      if (!stats) {
+        return;
+      }
       // Get stats options - merge defaults with user's config if provided
       const configStats = compiler.options.stats;
       const defaultStatsOptions = getStatsOptions(this.#_options.verbose);

@@ -62,11 +62,6 @@ export async function getBrowserConfig(
             workerChunkLoading: 'import',
           }),
     },
-    experiments: isDevServer
-      ? {}
-      : {
-          outputModule: true,
-        },
     resolve: {
       ...defaultConfig.resolve,
       mainFields: ['es2020', 'es2015', 'browser', 'module', 'main'],

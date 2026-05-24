@@ -46,7 +46,6 @@ export async function getCommonConfig(
 
   const defaultConfig: Configuration = {
     context: normalizedOptions.root,
-    profile: normalizedOptions.statsJson,
     mode:
       normalizedOptions.optimization.scripts ||
       normalizedOptions.optimization.styles.minify
