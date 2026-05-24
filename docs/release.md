@@ -9,6 +9,7 @@ read_when:
 Versioning uses Changesets.
 
 Publishing uses npm trusted publishing through `.github/workflows/publish.yml`.
+Staged publishing requires npm CLI `11.15.0` or newer.
 
 ## Gates
 
@@ -50,7 +51,6 @@ Modes:
 
 - `dry-run`: validates `npm publish` without changing the registry.
 - `stage`: runs `npm stage publish`.
-- `publish`: runs `npm publish` directly.
 
 The default mode is `stage`.
 
@@ -70,3 +70,11 @@ Trusted publishing creates npm provenance automatically for public packages from
 public GitHub-hosted workflows. Do not pass a publish token to this workflow.
 
 After staging, approve or reject the package from npm with 2FA.
+
+Trusted publisher settings on npm must match exactly:
+
+- Provider: GitHub Actions
+- Repository: `Nsttt/angular-rspack`
+- Workflow filename: `publish.yml`
+- Environment: `main`
+- Allowed action: `npm stage publish`

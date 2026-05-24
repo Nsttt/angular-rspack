@@ -11,7 +11,6 @@ on:
         options:
           - dry-run
           - stage
-          - publish
       tag:
         description: npm dist tag.
         required: true
@@ -55,10 +54,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '24'
+          registry-url: https://registry.npmjs.org
           package-manager-cache: false
 
-      - name: Use latest npm
-        run: npm install --global npm@latest
+      - name: Use npm with staged publishing
+        run: |
+          npm install --global npm@^11.15.0
+          npm --version
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -103,7 +105,3 @@ jobs:
       - name: Stage publish
         if: env.RELEASE_MODE == 'stage'
         run: pnpm release:stage
-
-      - name: Publish
-        if: env.RELEASE_MODE == 'publish'
-        run: pnpm release:publish
