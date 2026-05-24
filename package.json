@@ -50,7 +50,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release:dry-run": "npm publish --dry-run --access public --tag ${NPM_TAG:-latest}",
-    "release:stage": "npm stage publish --access public --tag ${NPM_TAG:-latest} --provenance",
+    "release:stage": "npm stage publish --access public --tag ${NPM_TAG:-latest}",
     "release:publish": "npm publish --access public --tag ${NPM_TAG:-latest}",
     "test": "rstest run",
     "lint": "rslint src",

@@ -49,7 +49,7 @@ Run the `Publish` workflow from GitHub Actions.
 Modes:
 
 - `dry-run`: validates `npm publish` without changing the registry.
-- `stage`: runs `npm stage publish` with provenance.
+- `stage`: runs `npm stage publish`.
 - `publish`: runs `npm publish` directly.
 
 The default mode is `stage`.
@@ -65,5 +65,8 @@ git push origin v0.0.1
 
 Tag pushes matching `v*` run `stage` mode.
 The workflow checks that `GITHUB_REF_NAME` matches `v${package.version}`.
+
+Trusted publishing creates npm provenance automatically for public packages from
+public GitHub-hosted workflows. Do not pass a publish token to this workflow.
 
 After staging, approve or reject the package from npm with 2FA.
