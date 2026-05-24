@@ -41,7 +41,7 @@ export function pluginAngular(
   };
 }
 
-export const pluginAngularRspack = pluginAngular;
+export const pluginAngularRsbuild = pluginAngular;
 
 function applyAngularRsbuildDefaults(
   config: RsbuildConfig,
