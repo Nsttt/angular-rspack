@@ -1,5 +1,11 @@
 # angular-rspack
 
+## 1.0.1
+
+### Patch Changes
+
+- Republish package metadata so npm displays the README.
+
 ## 1.0.0
 
 ### Major Changes
