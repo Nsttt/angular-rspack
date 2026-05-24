@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "angular-rspack/compiler": ["src/compiler/index.ts"],
+      "angular-rspack/loaders/angular-loader": [
+        "src/lib/plugins/loaders/angular-transform.loader.ts"
+      ],
+      "angular-rspack/loaders/angular-partial-transform-loader": [
+        "src/lib/plugins/loaders/angular-partial-transform.loader.ts"
+      ],
+      "angular-rspack/loaders/platform-server-exports-loader": [
+        "src/lib/plugins/loaders/platform-server-exports.loader.ts"
+      ]
+    },
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts", "dist", "node_modules"]
+}
