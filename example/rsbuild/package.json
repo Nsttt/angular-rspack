@@ -1,0 +1,22 @@
+{
+  "name": "angular-rspack-rsbuild-example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rsbuild build --config rsbuild.config.mjs",
+    "serve": "rsbuild dev --config rsbuild.config.mjs"
+  },
+  "dependencies": {
+    "@angular/common": "^21.2.14",
+    "@angular/compiler": "^21.2.14",
+    "@angular/core": "^21.2.14",
+    "@angular/platform-browser": "^21.2.14",
+    "angular-rspack": "link:../..",
+    "rxjs": "^7.8.0",
+    "zone.js": "~0.16.0"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^2.0.7",
+    "typescript": "~5.9.3"
+  }
+}

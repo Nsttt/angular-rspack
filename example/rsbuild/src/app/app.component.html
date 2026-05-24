@@ -1,0 +1,25 @@
+<main class="shell">
+  <section class="mast">
+    <p class="eyebrow">Rsbuild example</p>
+    <h1>Angular mounted through an Rsbuild plugin.</h1>
+    <p class="lede">
+      This application imports <code>pluginAngular</code> from
+      <code>angular-rspack/rsbuild</code> and lets Rsbuild own the command.
+    </p>
+  </section>
+
+  <section class="pipeline" aria-label="Rsbuild pipeline">
+    <div class="counter">
+      <span>publish train</span>
+      <strong>{{ nextPublish() }}</strong>
+      <button type="button" (click)="increment()">Advance</button>
+    </div>
+
+    @for (step of steps; track step.name) {
+      <article>
+        <span>{{ step.name }}</span>
+        <strong>{{ step.detail }}</strong>
+      </article>
+    }
+  </section>
+</main>

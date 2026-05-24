@@ -1,0 +1,20 @@
+<main class="shell">
+  <section class="intro">
+    <p class="eyebrow">Rspack example</p>
+    <h1>Angular compiled through a direct Rspack config.</h1>
+    <p class="lede">
+      This application uses <code>createConfig</code> from
+      <code>angular-rspack/rspack</code> and runs through the Rspack CLI.
+    </p>
+    <button type="button" (click)="increment()">Trigger {{ buildLabel() }}</button>
+  </section>
+
+  <section class="metrics" aria-label="Rspack build settings">
+    @for (metric of metrics; track metric.label) {
+      <article class="metric" [class]="metric.tone">
+        <span>{{ metric.label }}</span>
+        <strong>{{ metric.value }}</strong>
+      </article>
+    }
+  </section>
+</main>

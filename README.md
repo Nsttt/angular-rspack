@@ -34,11 +34,11 @@ export default defineConfig({
 `angular-rspack/rspack` exposes the raw Rspack config helpers.
 `angular-rspack/rsbuild` exposes the Rsbuild plugin.
 
-See `example/` for both:
+See `example/rspack` and `example/rsbuild` for complete Angular apps:
 
 ```sh
-pnpm --filter angular-rspack-example build
-pnpm --filter angular-rspack-example build:rsbuild
+pnpm --filter angular-rspack-rspack-example build
+pnpm --filter angular-rspack-rsbuild-example build
 ```
 
 For Angular workspace metadata, the package reads `angular.json` or `workspace.json`. Set `ANGULAR_RSPACK_WORKSPACE_ROOT` when running from outside the workspace root, and `ANGULAR_RSPACK_PROJECT` to select a project explicitly.

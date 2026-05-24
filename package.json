@@ -43,6 +43,8 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.lib.json",
+    "build:example:rspack": "pnpm --filter angular-rspack-rspack-example build",
+    "build:example:rsbuild": "pnpm --filter angular-rspack-rsbuild-example build",
     "test": "rstest run",
     "lint": "rslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",

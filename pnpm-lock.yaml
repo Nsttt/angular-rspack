@@ -145,7 +145,7 @@ importers:
         specifier: ^8.18.1
         version: 8.18.1
 
-  example:
+  example/rsbuild:
     dependencies:
       '@angular/common':
         specifier: ^21.2.14
@@ -160,8 +160,8 @@ importers:
         specifier: ^21.2.14
         version: 21.2.14(@angular/common@21.2.14(@angular/core@21.2.14(@angular/compiler@21.2.14)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.14(@angular/compiler@21.2.14)(rxjs@7.8.2)(zone.js@0.16.2))
       angular-rspack:
-        specifier: link:..
-        version: link:..
+        specifier: link:../..
+        version: link:../..
       rxjs:
         specifier: ^7.8.0
         version: 7.8.2
@@ -172,6 +172,34 @@ importers:
       '@rsbuild/core':
         specifier: ^2.0.7
         version: 2.0.7(core-js@3.47.0)
+      typescript:
+        specifier: ~5.9.3
+        version: 5.9.3
+
+  example/rspack:
+    dependencies:
+      '@angular/common':
+        specifier: ^21.2.14
+        version: 21.2.14(@angular/core@21.2.14(@angular/compiler@21.2.14)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2)
+      '@angular/compiler':
+        specifier: ^21.2.14
+        version: 21.2.14
+      '@angular/core':
+        specifier: ^21.2.14
+        version: 21.2.14(@angular/compiler@21.2.14)(rxjs@7.8.2)(zone.js@0.16.2)
+      '@angular/platform-browser':
+        specifier: ^21.2.14
+        version: 21.2.14(@angular/common@21.2.14(@angular/core@21.2.14(@angular/compiler@21.2.14)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@21.2.14(@angular/compiler@21.2.14)(rxjs@7.8.2)(zone.js@0.16.2))
+      angular-rspack:
+        specifier: link:../..
+        version: link:../..
+      rxjs:
+        specifier: ^7.8.0
+        version: 7.8.2
+      zone.js:
+        specifier: ~0.16.0
+        version: 0.16.2
+    devDependencies:
       '@rspack/cli':
         specifier: ^2.0.4
         version: 2.0.4(@rspack/core@2.0.4(@swc/helpers@0.5.21))(@rspack/dev-server@2.0.1(@rspack/core@2.0.4(@swc/helpers@0.5.21)))

@@ -2,6 +2,14 @@ import { defineConfig } from '@rsbuild/core';
 import { pluginAngular } from 'angular-rspack/rsbuild';
 
 export default defineConfig({
+  server: {
+    host: '127.0.0.1',
+    port: 4201,
+  },
+  dev: {
+    hmr: true,
+    liveReload: true,
+  },
   plugins: [
     pluginAngular(
       {

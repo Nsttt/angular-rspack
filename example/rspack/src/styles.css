@@ -1,0 +1,22 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Optima, Candara, Segoe UI, sans-serif;
+  background:
+    linear-gradient(115deg, rgba(135, 247, 210, 0.16), transparent 28%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 0 1px,
+      transparent 1px 72px
+    ),
+    #111718;
+}
+
+code {
+  color: #87f7d2;
+  font-weight: 700;
+}
