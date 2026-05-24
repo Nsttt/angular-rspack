@@ -49,9 +49,8 @@
     "build:example:rsbuild": "pnpm --filter angular-rspack-rsbuild-example build",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release:dry-run": "npm publish --dry-run --access public --tag ${NPM_TAG:-latest}",
-    "release:stage": "npm stage publish --access public --tag ${NPM_TAG:-latest}",
-    "release:publish": "npm publish --access public --tag ${NPM_TAG:-latest}",
+    "release:dry-run": "pnpm stage publish --dry-run --access public --tag ${NPM_TAG:-latest}",
+    "release:stage": "pnpm stage publish --access public --tag ${NPM_TAG:-latest}",
     "test": "rstest run",
     "lint": "rslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -67,7 +66,7 @@
     "type": "git",
     "url": "git+https://github.com/Nsttt/angular-rspack.git"
   },
-  "packageManager": "pnpm@10.33.1",
+  "packageManager": "pnpm@11.3.0",
   "dependencies": {
     "@ampproject/remapping": "2.3.0",
     "@angular/build": "^21.2.12",
