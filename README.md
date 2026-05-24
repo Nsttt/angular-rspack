@@ -1,6 +1,7 @@
 # angular-rspack
 
 An attempt to make Angular Rspack and Rsbuild plugins with no dependency on Nx.
+This project is inspired by the Nx [`@nx/angular-rspack`](https://www.npmjs.com/package/@nx/angular-rspack) package, but is published as a standalone package with no Nx runtime dependency.
 
 ## Rspack
 
