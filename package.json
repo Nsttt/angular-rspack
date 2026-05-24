@@ -56,6 +56,10 @@
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nsttt/angular-rspack.git"
+  },
   "packageManager": "pnpm@10.33.1",
   "dependencies": {
     "@ampproject/remapping": "2.3.0",
