@@ -1,6 +1,6 @@
 {
   "name": "angular-rspack",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Standalone Rspack plugin and Angular compiler utilities.",
   "type": "commonjs",
   "main": "./dist/lib/index.js",
@@ -43,7 +43,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "clean": "rimraf dist",
     "build": "pnpm clean && tsc -p tsconfig.lib.json",
     "build:example:rspack": "pnpm --filter angular-rspack-rspack-example build",
     "build:example:rsbuild": "pnpm --filter angular-rspack-rsbuild-example build",
@@ -139,6 +139,7 @@
     "@types/babel__core": "^7.20.5",
     "@types/loader-utils": "^3.0.0",
     "@types/node": "^25.9.1",
-    "@types/ws": "^8.18.1"
+    "@types/ws": "^8.18.1",
+    "rimraf": "^6.1.3"
   }
 }
