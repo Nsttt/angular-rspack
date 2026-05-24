@@ -40,6 +40,7 @@ trash example/rspack/dist example/rsbuild/dist 2>/dev/null || true
 - `example/rspack`: Rspack Angular app.
 - `example/rsbuild`: Rsbuild Angular app.
 - `docs/release.md`: release process.
+- `.changeset`: release intent and Changesets config.
 
 ## Rspack vs Rsbuild API
 
@@ -65,10 +66,12 @@ read_when:
 ## Release
 
 - GitHub Actions workflow: `.github/workflows/publish.yml`.
+- Version PR workflow: `.github/workflows/changesets.yml`.
 - GitHub environment: `main`.
 - npm trusted publishing should trust `publish.yml`.
 - Default release mode is staged publish: `npm stage publish --provenance`.
 - Tag releases use `v${package.version}`.
+- Use `pnpm changeset` for user-facing changes.
 
 ## Style
 

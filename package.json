@@ -39,12 +39,19 @@
   "files": [
     "dist",
     "patch",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.lib.json",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "pnpm clean && tsc -p tsconfig.lib.json",
     "build:example:rspack": "pnpm --filter angular-rspack-rspack-example build",
     "build:example:rsbuild": "pnpm --filter angular-rspack-rsbuild-example build",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release:dry-run": "npm publish --dry-run --access public --tag ${NPM_TAG:-latest}",
+    "release:stage": "npm stage publish --access public --tag ${NPM_TAG:-latest} --provenance",
+    "release:publish": "npm publish --access public --tag ${NPM_TAG:-latest}",
     "test": "rstest run",
     "lint": "rslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -125,9 +132,10 @@
     }
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@rsbuild/core": "^2.0.7",
     "@rslint/core": "^0.5.3",
     "@rstest/core": "^0.10.2",
-    "@rsbuild/core": "^2.0.7",
     "@types/babel__core": "^7.20.5",
     "@types/loader-utils": "^3.0.0",
     "@types/node": "^25.9.1",

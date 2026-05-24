@@ -1,14 +1,18 @@
 ---
-summary: Release workflow, npm trusted publishing, staged publish, and tag release process.
+summary: Changesets versioning, npm trusted publishing, staged publish, and tag release process.
 read_when:
   - Publishing or releasing this package
 ---
 
 # Release
 
-The release workflow is `.github/workflows/publish.yml`.
+Versioning uses Changesets.
 
-It runs the full local gate before publishing:
+Publishing uses npm trusted publishing through `.github/workflows/publish.yml`.
+
+## Gates
+
+Release workflows run:
 
 - `pnpm typecheck`
 - `pnpm lint`
@@ -18,7 +22,23 @@ It runs the full local gate before publishing:
 - `pnpm build:example:rsbuild`
 - `npm pack --dry-run`
 
-The workflow uses npm trusted publishing with GitHub OIDC.
+## Changesets
+
+For user-facing changes, add a changeset:
+
+```sh
+pnpm changeset
+```
+
+Choose `patch`, `minor`, or `major`, then write the changelog summary.
+
+When changes land on `main`, `.github/workflows/changesets.yml` creates or updates a `chore: version packages` PR. That PR runs `pnpm version-packages`, updates `package.json`, updates `CHANGELOG.md`, and removes consumed changeset files.
+
+Merge the version PR before publishing.
+
+## Publishing
+
+The publish workflow uses npm trusted publishing with GitHub OIDC.
 The GitHub environment is `main`, and npm must be configured to trust the
 `publish.yml` workflow for this repository.
 

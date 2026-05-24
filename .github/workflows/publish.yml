@@ -99,12 +99,12 @@ jobs:
 
       - name: Publish dry run
         if: env.RELEASE_MODE == 'dry-run'
-        run: npm publish --dry-run --access public --tag "$NPM_TAG"
+        run: pnpm release:dry-run
 
       - name: Stage publish
         if: env.RELEASE_MODE == 'stage'
-        run: npm stage publish --access public --tag "$NPM_TAG" --provenance
+        run: pnpm release:stage
 
       - name: Publish
         if: env.RELEASE_MODE == 'publish'
-        run: npm publish --access public --tag "$NPM_TAG"
+        run: pnpm release:publish
